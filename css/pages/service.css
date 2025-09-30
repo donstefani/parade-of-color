@@ -1,0 +1,158 @@
+/* Service Page Styles */
+
+/* Service Page Header Section */
+.service-hero {
+    padding: 2rem 0;
+    background: #fff;
+}
+
+.service-hero-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.service-hero-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Service Image Container */
+.service-image-container {
+    position: relative;
+    order: 1;
+}
+
+.service-hero-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-hero-image:hover {
+    transform: translateY(-2px);
+}
+
+/* Service Introduction */
+.service-intro {
+    order: 2;
+    background: var(--background-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+}
+
+.service-intro h1 {
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.service-intro-text p {
+    color: #666;
+    margin-bottom: 0;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Service Content Section */
+.service-content {
+    padding: 3rem 0;
+    background: #fff;
+}
+
+.service-content-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.placeholder-content {
+    text-align: center;
+    padding: 3rem 0;
+    color: #666;
+}
+
+.placeholder-content h2 {
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+/* Responsive Design for Service Pages */
+@media (max-width: 768px) {
+    .service-hero {
+        padding: 1.5rem 0;
+    }
+    
+    .service-hero-content {
+        padding: 0 1rem;
+    }
+    
+    .service-hero-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .service-image-container {
+        order: 1;
+    }
+    
+    .service-hero-image {
+        height: 200px;
+        max-width: 280px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .service-intro {
+        order: 2;
+        margin-top: 0;
+        padding: 1.25rem;
+    }
+    
+    .service-intro h1 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    
+    .service-content-container {
+        padding: 0 1rem;
+    }
+    
+    .service-content {
+        padding: 2rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-hero {
+        padding: 1rem 0;
+    }
+    
+    .service-hero-image {
+        height: 180px;
+        max-width: 250px;
+    }
+    
+    .service-intro {
+        padding: 1rem;
+    }
+    
+    .service-intro h1 {
+        font-size: 1.6rem;
+    }
+    
+    .service-intro-text p {
+        font-size: 0.95rem;
+    }
+}
+

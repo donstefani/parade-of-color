@@ -20,14 +20,6 @@ include 'common/header.php';
     </div>
 </section>
 
-<!-- CTA Section -->
-<section class="cta-section">
-    <div class="cta-content">
-        <h2>Ready to Transform Your Space?</h2>
-        <p>With over 15 years of experience in painting and construction, Parade of Color delivers quality workmanship that exceeds expectations. Whether you need a fresh coat of paint or custom carpentry work, we're here to bring your vision to life.</p>
-        <a href="contact.php" class="btn btn-primary btn-large">Start Your Project Today</a>
-    </div>
-</section>
 
 <!-- Main Categories Section -->
 <section class="categories-section">
@@ -102,55 +94,56 @@ include 'common/header.php';
         </div>
     </div>
 </section>
+    </div> <!-- End site-container -->
 
-<!-- Why Choose Us Section -->
-<section class="why-choose-section">
-    <div class="why-choose-content">
-        <div class="why-choose-text">
-            <h2>Why Choose Parade of Colors?</h2>
-            <p>At Parade of Color, we believe that every project deserves the highest level of craftsmanship and attention to detail. Our team combines years of experience with the latest techniques and premium materials to deliver results that exceed your expectations.</p>
-            <p>We're not just contractors – we're your partners in transforming your space. From the initial consultation to the final walkthrough, we maintain clear communication and ensure every detail meets our high standards. Our commitment to quality and customer satisfaction has made us the trusted choice for homeowners and businesses throughout the area.</p>
-            <div class="why-choose-features">
-                <div class="feature-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Licensed & Insured</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>15+ Years Experience</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Quality Guarantee</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Free Estimates</span>
+    <!-- Why Choose Us Section - Full width background -->
+    <section class="why-choose-section">
+        <div class="why-choose-content">
+            <div class="why-choose-text">
+                <h2>Why Choose Parade of Colors?</h2>
+                <p>At Parade of Color, we believe that every project deserves the highest level of craftsmanship and attention to detail. Our team combines years of experience with the latest techniques and premium materials to deliver results that exceed your expectations.</p>
+                <p>We're not just contractors – we're your partners in transforming your space. From the initial consultation to the final walkthrough, we maintain clear communication and ensure every detail meets our high standards. Our commitment to quality and customer satisfaction has made us the trusted choice for homeowners and businesses throughout the area.</p>
+                <div class="why-choose-features">
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Licensed & Insured</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>15+ Years Experience</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Quality Guarantee</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Free Estimates</span>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="customer-review">
-            <div class="review-card">
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <blockquote>
-                    "Parade of Color transformed our entire home! The exterior painting job was flawless, and the team was professional, punctual, and respectful of our property. The quality of work exceeded our expectations, and we couldn't be happier with the results. Highly recommended!"
-                </blockquote>
-                <div class="review-author">
-                    <div class="author-info">
-                        <strong>Sarah & Mike Johnson</strong>
-                        <span>Homeowners - Residential Project</span>
+            
+            <div class="customer-review">
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote>
+                        "Parade of Color transformed our entire home! The exterior painting job was flawless, and the team was professional, punctual, and respectful of our property. The quality of work exceeded our expectations, and we couldn't be happier with the results. Highly recommended!"
+                    </blockquote>
+                    <div class="review-author">
+                        <div class="author-info">
+                            <strong>Sarah & Mike Johnson</strong>
+                            <span>Homeowners - Residential Project</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 <?php include 'common/footer.php'; ?>

@@ -1,0 +1,128 @@
+/* Header Styles */
+.site-header {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    position: relative;
+}
+
+/* Wavy rainbow background for header */
+.site-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        #EA6C92 0%, 
+        #F0A573 20%, 
+        #FFF6A3 40%, 
+        #ABEDA1 60%, 
+        #9EB8FF 80%, 
+        #EA6C92 100%);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 C150,30 300,90 450,60 C600,30 750,90 900,60 C1050,30 1200,90 1200,60 L1200,120 L0,120 Z' fill='%23000'/%3E%3C/svg%3E");
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 C150,30 300,90 450,60 C600,30 750,90 900,60 C1050,30 1200,90 1200,60 L1200,120 L0,120 Z' fill='%23000'/%3E%3C/svg%3E");
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    opacity: 0.3;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.brand {
+    flex: 1;
+}
+
+.site-title {
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.site-title a {
+    color: #2c3e50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Remove spacing between colored letters */
+.color-letter {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0;
+}
+
+.site-title a:hover {
+    color: #e74c3c;
+}
+
+.site-tagline {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.header-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.contact-item i {
+    color: #e74c3c;
+    width: 16px;
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .header-contact {
+        display: none;
+    }
+    
+    .site-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content {
+        padding: 0.75rem;
+    }
+    
+    .site-title {
+        font-size: 1.3rem;
+    }
+    
+    .site-tagline {
+        font-size: 0.8rem;
+    }
+}
+
