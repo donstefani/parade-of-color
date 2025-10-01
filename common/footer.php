@@ -1,6 +1,7 @@
         </main>
-        
-        <!-- Footer Section -->
+    </div> <!-- End site-container -->
+    
+    <!-- Footer Section -->
         <footer class="site-footer">
             <div class="footer-content">
                 <!-- Company Info -->

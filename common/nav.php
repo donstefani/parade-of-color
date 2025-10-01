@@ -1,6 +1,61 @@
 <?php
 // Load service taxonomy data
-$serviceData = json_decode(file_get_contents('config/service_taxonomy.json'), true);
+$rawServiceData = json_decode(file_get_contents('config/services_map.json'), true);
+
+// Transform the data structure to match navigation expectations
+$serviceData = ['categories' => []];
+$categoryIndex = 0;
+
+foreach ($rawServiceData as $categoryName => $categoryData) {
+    $subCategories = [];
+    $subCategoryIndex = 0;
+    
+    // Process each subcategory in the category
+    foreach ($categoryData as $key => $value) {
+        // Skip the cat_image key
+        if ($key === 'cat_image') {
+            continue;
+        }
+        
+        // Handle different subcategory structures
+        if (is_array($value)) {
+            // Check if this is a Painting Services style subcategory (object with images property)
+            if (isset($value['images']) && is_array($value['images'])) {
+                // Painting Services format: { "sub_sort_order": 1, "images": [...] }
+                $subCategories[] = [
+                    'id' => $subCategoryIndex,
+                    'name' => $key,
+                    'sub_sort_order' => isset($value['sub_sort_order']) ? $value['sub_sort_order'] : 999,
+                    'images' => $value['images']
+                ];
+            } else {
+                // Other categories format: direct array of images
+                $subCategories[] = [
+                    'id' => $subCategoryIndex,
+                    'name' => $key,
+                    'sub_sort_order' => 999, // Default sort order for categories without sub_sort_order
+                    'images' => $value
+                ];
+            }
+            $subCategoryIndex++;
+        }
+    }
+    
+    // Sort subcategories by sub_sort_order
+    usort($subCategories, function($a, $b) {
+        return $a['sub_sort_order'] - $b['sub_sort_order'];
+    });
+    
+    // Add the transformed category
+    $serviceData['categories'][] = [
+        'id' => $categoryIndex,
+        'name' => $categoryName,
+        'cat_image' => isset($categoryData['cat_image']) ? $categoryData['cat_image'] : null,
+        'cat_link' => isset($categoryData['cat_link']) ? $categoryData['cat_link'] : null,
+        'subCategories' => $subCategories
+    ];
+    $categoryIndex++;
+}
 ?>
 
 <nav class="main-navigation">
@@ -14,6 +69,12 @@ $serviceData = json_decode(file_get_contents('config/service_taxonomy.json'), tr
         
         <!-- Main Navigation Menu -->
         <ul class="nav-menu">
+            <!-- Mobile close button -->
+            <li class="mobile-close-btn">
+                <button class="mobile-menu-close" aria-label="Close navigation menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </li>
             <li class="nav-item">
                 <a href="index.php" class="nav-link">Home</a>
             </li>
@@ -31,14 +92,25 @@ $serviceData = json_decode(file_get_contents('config/service_taxonomy.json'), tr
                     <div class="dropdown-content">
                         <!-- Sub-categories List -->
                         <div class="subcategories-list">
+                            <?php if (!empty($category['cat_link'])): ?>
+                            <h3><a href="<?php echo htmlspecialchars($category['cat_link']); ?>" class="category-title-link"><?php echo htmlspecialchars($category['name']); ?></a></h3>
+                            <?php else: ?>
                             <h3><?php echo htmlspecialchars($category['name']); ?></h3>
+                            <?php endif; ?>
                             <ul class="subcategories">
                                 <?php foreach ($category['subCategories'] as $subCategory): ?>
                                 <li class="subcategory-item">
+                                    <?php if (!empty($category['cat_link'])): ?>
+                                    <a href="<?php echo htmlspecialchars($category['cat_link']); ?>#<?php echo strtolower(str_replace([' ', ',', '&'], ['-', '', 'and'], $subCategory['name'])); ?>" 
+                                       class="subcategory-link">
+                                        <?php echo htmlspecialchars($subCategory['name']); ?>
+                                    </a>
+                                    <?php else: ?>
                                     <a href="<?php echo strtolower(str_replace([' ', '&'], ['-', 'and'], $category['name'])); ?>.php#<?php echo strtolower(str_replace([' ', ',', '&'], ['-', '', 'and'], $subCategory['name'])); ?>" 
                                        class="subcategory-link">
                                         <?php echo htmlspecialchars($subCategory['name']); ?>
                                     </a>
+                                    <?php endif; ?>
                                 </li>
                                 <?php endforeach; ?>
                             </ul>
@@ -47,11 +119,9 @@ $serviceData = json_decode(file_get_contents('config/service_taxonomy.json'), tr
                         <!-- Featured Image -->
                         <div class="dropdown-image">
                             <?php 
-                            // Get first image from first sub-category
-                            $firstSubCategory = $category['subCategories'][0];
-                            if (!empty($firstSubCategory['images'])) {
-                                $firstImage = $firstSubCategory['images'][0];
-                                echo '<img src="images/' . htmlspecialchars($firstImage['name']) . '" alt="' . htmlspecialchars($firstSubCategory['name']) . '">';
+                            // Use the category image from the JSON
+                            if (!empty($category['cat_image'])) {
+                                echo '<img src="images/' . htmlspecialchars($category['cat_image']) . '" alt="' . htmlspecialchars($category['name']) . '">';
                             }
                             ?>
                         </div>
@@ -76,6 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
     const dropdownPanels = document.querySelectorAll('.dropdown-panel');
     const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileCloseBtn = document.querySelector('.mobile-menu-close');
     const navMenu = document.querySelector('.nav-menu');
     
     // Desktop dropdown functionality
@@ -104,6 +175,14 @@ document.addEventListener('DOMContentLoaded', function() {
         navMenu.classList.toggle('active');
         this.classList.toggle('active');
     });
+    
+    // Mobile menu close button
+    if (mobileCloseBtn) {
+        mobileCloseBtn.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            mobileToggle.classList.remove('active');
+        });
+    }
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
