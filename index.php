@@ -4,6 +4,8 @@ $pageTitle = 'Parade of Color - Professional Painting & Construction Services';
 
 // Include header
 include 'common/header.php';
+
+renderHeader(false);
 ?>
 
 <!-- Hero Section -->

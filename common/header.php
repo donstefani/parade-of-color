@@ -1,3 +1,6 @@
+<?php
+function renderHeader($showContainer = true) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,20 +12,21 @@
     <?php include 'common/meta.php'; ?>
 
    <!-- Base styles - must be first -->
-    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="css/base.css">
 
     <!-- Layout and structural styles -->
-    <link rel="stylesheet" href="/css/layout.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/navigation.css">
-    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/footer.css">
 
     <!-- Component styles -->
-    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/gallery.css">
 
     <!-- Page-specific styles (only include what is needed per page) -->
-    <link rel="stylesheet" href="/css/pages/home.css">      <!-- For index.php only -->
-    <link rel="stylesheet" href="/css/pages/service.css">   <!-- For service pages only --> 
+    <link rel="stylesheet" href="css/pages/home.css">      <!-- For index.php only -->
+    <link rel="stylesheet" href="css/pages/services.css">   <!-- For service pages only --> 
     
     <!-- Font Awesome for icons (optional) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -55,8 +59,10 @@
     
     <!-- Navigation Section - Full width background -->
     <?php include 'common/nav.php'; ?>
-    
-    <!-- Main container with max-width constraint -->
-    <div class="site-container">
-        <!-- Main Content Area -->
-        <main class="main-content">
+   <?php if ($showContainer): ?>
+        <!-- Main container with max-width constraint -->
+        <div class="site-container">
+                <!-- Main Content Area -->
+                <main class="main-content">
+    <?php endif; ?>
+<?php } ?>

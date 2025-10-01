@@ -25,7 +25,8 @@
 
 /* CSS Variables */
 :root {
-    --background-light: #f0f4f9;
+    --background-light: #f3f8fe;
+    --sub-hero-background: #efefef;
 }
 
 /* Reset and Base Styles */
