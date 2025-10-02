@@ -13,7 +13,7 @@ renderHeader(false);
     <div class="hero-content">
         <div class="hero-text">
             <h1>Professional Painting & Construction Services</h1>
-            <p>Transform your space with quality workmanship and attention to detail. From interior painting to custom carpentry, Parade of Color delivers exceptional results for residential and commercial projects.</p>
+            <p>Your Vision, Our Expertise, Exceptional Results</p>
             <div class="hero-buttons">
                 <a href="contact.php" class="btn btn-primary">Get Free Estimate</a>
                 <a href="about.php" class="btn btn-secondary">Learn More</a>
@@ -27,7 +27,7 @@ renderHeader(false);
 <section class="categories-section">
     <div class="section-header">
         <h2>Our Services</h2>
-        <p>Professional solutions for all your painting and construction needs</p>
+        <p>We provide comprehensive painting and construction services for both residential and commercial properties. Our experienced team delivers quality craftsmanship, attention to detail, and reliable results that transform your space and exceed your expectations.</p>
     </div>
     
     <div class="categories-grid">

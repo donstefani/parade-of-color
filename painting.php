@@ -43,12 +43,10 @@ $categoryImage = $imageMapping['Painting Services']['cat_image'] ?? 'interior_pa
             </div>
             <div class="subcategory-text">
                 <p>
-                    <!-- Add your descriptive content here for Exterior Painting -->
-                    This is placeholder content for Exterior Painting. Replace this with your actual service description.
+                    Protect and enhance your home's exterior with our professional exterior painting services. We use premium exterior paints and proven techniques to provide weather-resistant protection while dramatically improving your home's curb appeal and value.
                 </p>
                 <p>
-                    <!-- Add additional descriptive content here -->
-                    Additional details about Exterior Painting services can be added here.
+                    Our exterior painting process includes thorough surface preparation, primer application, and multiple coats of high-quality paint to ensure lasting protection against the elements. We work with all exterior surfaces including wood, stucco, brick, and metal siding.
                 </p>
             </div>
         </div>
@@ -79,12 +77,10 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="subcategory-text">
                 <p>
-                    <!-- Add your descriptive content here for Interior Painting -->
-                    This is placeholder content for Interior Painting. Replace this with your actual service description.
+                    Transform your living spaces with our expert interior painting services. We specialize in creating beautiful, lasting finishes that reflect your personal style while using low-VOC paints for a healthier indoor environment.
                 </p>
                 <p>
-                    <!-- Add additional descriptive content here -->
-                    Additional details about Interior Painting services can be added here.
+                    Our interior painting services include detailed surface preparation, color consultation, and precision application techniques. We handle everything from single rooms to complete home makeovers, ensuring clean lines and professional results.
                 </p>
             </div>
         </div>
@@ -115,12 +111,10 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="subcategory-text">
                 <p>
-                    <!-- Add your descriptive content here for Commercial Painting -->
-                    This is placeholder content for Commercial Painting. Replace this with your actual service description.
+                    Maintain your business's professional appearance with our commercial painting services. We understand the importance of minimal disruption to your operations and work efficiently to complete projects on time and within budget.
                 </p>
                 <p>
-                    <!-- Add additional descriptive content here -->
-                    Additional details about Commercial Painting services can be added here.
+                    Our commercial painting services include office buildings, retail spaces, warehouses, and other commercial properties. We use commercial-grade paints and follow all safety protocols to ensure a professional finish that enhances your business image.
                 </p>
             </div>
         </div>
@@ -151,12 +145,10 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="subcategory-text">
                 <p>
-                    <!-- Add your descriptive content here for New Construction Painting -->
-                    This is placeholder content for New Construction Painting. Replace this with your actual service description.
+                    Complete your new construction project with our professional new construction painting services. We work closely with builders and contractors to ensure timely completion and seamless integration with your construction timeline.
                 </p>
                 <p>
-                    <!-- Add additional descriptive content here -->
-                    Additional details about New Construction Painting services can be added here.
+                    Our new construction painting includes both interior and exterior work, from primer application to final finish coats. We ensure proper surface preparation and use appropriate paints for new construction materials to provide lasting protection and beauty.
                 </p>
             </div>
         </div>
