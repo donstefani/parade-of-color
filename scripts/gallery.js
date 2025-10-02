@@ -20,6 +20,9 @@ class ImageGallery {
             ...options
         };
         
+        // Create unique modal ID for this gallery instance
+        this.modalId = `gallery-modal-${containerId}`;
+        
         this.init();
     }
     
@@ -187,12 +190,12 @@ class ImageGallery {
     }
     
     createModal() {
-        // Check if modal already exists globally
-        let modal = document.getElementById('gallery-modal');
+        // Check if modal already exists for this gallery instance
+        let modal = document.getElementById(this.modalId);
         
         if (!modal) {
             modal = document.createElement('div');
-            modal.id = 'gallery-modal';
+            modal.id = this.modalId;
             modal.className = 'gallery-modal';
             
             // Apply styles directly to ensure they work
@@ -253,8 +256,8 @@ class ImageGallery {
         // Modal events
         this.bindModalEvents();
         
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
+        // Keyboard navigation - only for this gallery instance
+        this.keyboardHandler = (e) => {
             if (this.modal && this.modal.classList.contains('active')) {
                 // Modal is open - handle modal navigation
                 if (e.key === 'ArrowLeft') this.previousImage();
@@ -267,7 +270,9 @@ class ImageGallery {
                 if (e.key === 'ArrowRight') this.nextImage();
                 if (e.key === 'Enter' || e.key === ' ') this.openModal();
             }
-        });
+        };
+        
+        document.addEventListener('keydown', this.keyboardHandler);
     }
     
     bindModalEvents() {
@@ -422,7 +427,7 @@ class ImageGallery {
         
         document.body.style.overflow = 'hidden';
         
-        // Update modal with current image
+        // Update modal with current image from THIS gallery instance
         this.showImage(this.currentIndex);
     }
     
@@ -443,5 +448,15 @@ class ImageGallery {
         this.createGallery();
         this.bindEvents();
         this.showImage(0);
+    }
+    
+    // Cleanup method to remove event listeners and modal
+    destroy() {
+        if (this.keyboardHandler) {
+            document.removeEventListener('keydown', this.keyboardHandler);
+        }
+        if (this.modal && document.body.contains(this.modal)) {
+            document.body.removeChild(this.modal);
+        }
     }
 }

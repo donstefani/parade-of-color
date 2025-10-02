@@ -71,8 +71,6 @@
                 <div class="footer-bottom-content">
                     <p>&copy; <?php echo date('Y'); ?> Parade of Color Painting, LLC. All rights reserved.</p>
                     <div class="footer-bottom-links">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
                         <a href="#">Sitemap</a>
                     </div>
                 </div>
