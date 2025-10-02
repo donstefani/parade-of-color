@@ -6,7 +6,7 @@
 }
 
 /* Rainbow wave at bottom of navigation */
-.main-navigation::after {
+/* .main-navigation::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -28,7 +28,7 @@
     -webkit-mask-position: bottom;
     opacity: 0.3;
     z-index: 1;
-}
+} */
 
 .nav-container {
     max-width: 1280px;
@@ -177,6 +177,13 @@
     margin: 0.5rem 1rem;
 }
 
+/* Remove mobile toggle margins on mobile to eliminate white space */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        margin: 0.25rem 0.5rem; /* Reduced margins */
+    }
+}
+
 /* Hide mobile close button on desktop */
 .mobile-close-btn {
     display: none;
@@ -192,6 +199,17 @@
 
 /* Responsive Navigation */
 @media (max-width: 768px) {
+    .nav-container {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Ensure no white space between nav and next element */
+    .main-navigation + * {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    
     .mobile-menu-toggle {
         display: flex;
         z-index: 100000 !important;
@@ -212,7 +230,7 @@
         flex-direction: column !important;
         box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
         z-index: 99999 !important;
-        padding-top: 120px !important; /* Increased to account for close button */
+        padding-top: 20px !important; /* Drastically reduced to eliminate white space */
         overflow-y: auto !important;
         margin: 0 !important;
         border: none !important;
@@ -222,8 +240,8 @@
     .mobile-close-btn {
         display: block !important;
         position: fixed !important;
-        top: 20px !important;
-        right: 20px !important;
+        top: 10px !important; /* Reduced from 20px to match reduced padding */
+        right: 10px !important; /* Reduced from 20px */
         z-index: 100001 !important;
         list-style: none !important;
         margin: 0 !important;
@@ -307,10 +325,22 @@
     /* Ensure main navigation doesn't interfere with mobile menu */
     .main-navigation {
         z-index: 100000 !important;
+        margin-bottom: -4px;
     }
 }
 
 @media (max-width: 480px) {
+    /* Further reduce mobile menu top padding on very small screens */
+    .nav-menu {
+        padding-top: 10px !important; /* Even more aggressive reduction */
+    }
+    
+    /* Further reduce close button positioning */
+    .mobile-close-btn {
+        top: 5px !important;
+        right: 5px !important;
+    }
+    
     .nav-link {
         padding: 0.75rem 1rem;
         font-size: 0.9rem;
