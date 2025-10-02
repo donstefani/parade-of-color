@@ -286,10 +286,16 @@
 
 /* Responsive Design for Home Page */
 @media (max-width: 768px) {
+    /* Completely eliminate hero section top padding to remove white space below nav */
+    .hero-section {
+        padding: 0 0 1rem 0 !important; /* Remove top padding completely */
+        margin-top: 0 !important;
+    }
+    
     /* Full white overlay for better text readability on mobile */
     .hero-section::before {
         width: 100%;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.6);
     }
     
     .hero-content {
@@ -300,10 +306,12 @@
     .hero-text h1,
     .hero-text p {
         color: #2c3e50;
+        line-height: 1.2;
     }
     
     .hero-text h1 {
         font-size: 2rem;
+        line-height: 1.2;
     }
     
     .hero-buttons {
@@ -343,7 +351,8 @@
 
 @media (max-width: 480px) {
     .hero-section {
-        padding: 2rem 0;
+        padding: 0 0 0.5rem 0 !important; /* Remove top padding completely on small screens */
+        margin-top: 0 !important;
     }
     
     .hero-text h1 {

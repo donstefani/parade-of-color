@@ -7,6 +7,13 @@
     flex-direction: column;
 }
 
+/* Remove any potential margins on mobile */
+@media (max-width: 768px) {
+    .site-container {
+        margin: 0;
+    }
+}
+
 /* Main Content */
 .main-content {
     flex: 1;
@@ -16,13 +23,13 @@
 /* Responsive Layout Adjustments */
 @media (max-width: 768px) {
     .main-content {
-        padding: 1rem;
+        padding: 0.5rem 1rem; /* Reduced top/bottom padding to minimize space below nav */
     }
 }
 
 @media (max-width: 480px) {
     .main-content {
-        padding: 0.75rem;
+        padding: 0.25rem 0.75rem; /* Further reduced to minimize space below nav */
     }
 }
 
